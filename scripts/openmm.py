@@ -50,6 +50,7 @@ collision_rate = 1.0 / unit.picoseconds
 timestep = 2.0 * unit.femtoseconds
 solvent_padding = 10.0 * unit.angstrom
 ionic_strength = 150 * unit.millimolar
+max_number_cpus = 4  # important for e.g. slurm
 
 # reporter
 equilibration_reporter_frequency = round(equilibration_steps / 1000)
@@ -57,6 +58,10 @@ equilibration_trajectory_frequency = round(equilibration_steps / 100)
 production_reporter_frequency = round(production_steps / 10000)
 production_checkpoint_frequency = round(production_steps / 100)
 production_trajectory_frequency = round(production_steps / 2000)  # 2000 frames
+
+print("Setting maximum number of CPU threads ...")
+platform = mm.Platform.getPlatformByName("CPU")
+platform.setPropertyDefaultValue(property="Threads", value=str(max_number_cpus))
 
 print("Making output directory ...")
 output_directory = pathlib.Path(output_directory)
