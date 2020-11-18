@@ -3,7 +3,7 @@ This repository collects scripts for running MD simulations.
 
 ## Content
 
-- [scripts/openmm.py](https://github.com/schallerdavid/mdscripts/scripts/openmm.py)  
+- [scripts/openmm.py](https://github.com/schallerdavid/mdscripts/blob/main/scripts/openmm.py)  
   - simulation with `OpenMM`
   - equilibration and production in NPT ensemble
   - small molecule parametrization via `openmmforcefields`
