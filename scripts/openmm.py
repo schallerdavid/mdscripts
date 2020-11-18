@@ -7,7 +7,11 @@ processed to center the protein in the water box. The simulation can be restrict
 Thanks to @glass-w and @hannahbrucemacdonald for inspiration.
 
 Easy installation of all dependencies via conda:
-conda create -n openmm -c conda-forge mdanalysis mdtraj numpy openforcefield openmm openmmforcefields
+conda create -n openmm -c conda-forge -c omnia mdanalysis mdtraj numpy openforcefield openmm openmmforcefields
+
+Optionally install the OpenEye toolkits (free academic licence) to accelerate small molecule parametrization:
+conda activate openmm
+conda install -c openeye openeye-toolkits
 """
 import pathlib
 
