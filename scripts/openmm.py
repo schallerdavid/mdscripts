@@ -112,7 +112,9 @@ print("Initializing system generator ...")
 system_generator = SystemGenerator(
     forcefields=[protein_forcefield, solvent_forcefield],
     barostat=barostat,
-    periodic_forcefield_kwargs={"nonbondedMethod": nonbonded_method},
+    periodic_forcefield_kwargs={"nonbondedMethod": nonbonded_method,
+                                "constraints": constraints,
+                                "removeCMMotion": remove_cm_motions},
     small_molecule_forcefield=small_molecule_forcefield,
     molecules=molecule,
 )
