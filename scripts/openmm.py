@@ -14,6 +14,7 @@ conda activate openmm
 conda install -c openeye openeye-toolkits
 """
 import pathlib
+import subprocess
 
 import MDAnalysis as mda
 from MDAnalysis import transformations
@@ -66,6 +67,10 @@ platform.setPropertyDefaultValue(property="Threads", value=str(max_number_cpus))
 print("Making output directory ...")
 output_directory = pathlib.Path(output_directory)
 (output_directory / "equilibration").mkdir(parents=True, exist_ok=True)
+
+print("Writing packages of conda environment ...")
+with open(output_directory / "conda_environment.txt", "w") as wf:
+    subprocess.run(["conda", "list"], stdout=wf)
 
 print("Reading PDB file ...")
 pdb = app.PDBFile(pdb_path)
