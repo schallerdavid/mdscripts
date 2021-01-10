@@ -47,6 +47,7 @@ pressure = 1.0 * unit.bar
 temperature = 300 * unit.kelvin
 constraints = app.HBonds
 remove_cm_motions = True
+nonbonded_cutoff = 1 * unit.nanometers
 collision_rate = 1.0 / unit.picoseconds
 timestep = 2.0 * unit.femtoseconds
 solvent_padding = 10.0 * unit.angstrom
@@ -113,6 +114,7 @@ system_generator = SystemGenerator(
     forcefields=[protein_forcefield, solvent_forcefield],
     barostat=barostat,
     periodic_forcefield_kwargs={"nonbondedMethod": nonbonded_method,
+                                "nonbondedCutoff": nonbonded_cutoff,
                                 "constraints": constraints,
                                 "removeCMMotion": remove_cm_motions},
     small_molecule_forcefield=small_molecule_forcefield,
