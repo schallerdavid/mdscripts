@@ -276,15 +276,13 @@ if production_steps / production_trajectory_frequency >= 1:
         str(output_directory / "equilibration/out_state.pdb"),
         str(output_directory / "trajectory.xtc"),
     )
-    protein = u.select_atoms("protein or resname ACE or resname NME")
-    reference_u = u.copy()
-    reference = reference_u.select_atoms("protein or resname ACE or resname NME")
-    ag = u.atoms
+    backbone = u.select_atoms("backbone")
+    not_protein = u.select_atoms("not protein")
     workflow = (
-        transformations.unwrap(ag),
-        transformations.center_in_box(protein, center="mass"),
-        transformations.wrap(ag, compound="fragments"),
-        transformations.fit_rot_trans(protein, reference),
+        transformations.unwrap(backbone),
+        transformations.center_in_box(backbone),
+        transformations.wrap(not_protein, compound="fragments"),
+        transformations.fit_rot_trans(backbone, backbone),
     )
     u.trajectory.add_transformations(*workflow)
 
