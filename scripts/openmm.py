@@ -7,7 +7,7 @@ processed to center the protein in the water box. The simulation can be restrict
 Thanks to @glass-w and @hannahbrucemacdonald for inspiration.
 
 Easy installation of all dependencies via conda:
-conda create -n openmm -c conda-forge -c omnia mdanalysis mdtraj numpy openforcefield openmm openmmforcefields
+conda create -n openmm -c conda-forge mdanalysis mdtraj 'openmmforcefields>=0.9.0'
 
 Optionally install the OpenEye toolkits (free academic licence) to accelerate small molecule parametrization:
 conda activate openmm
@@ -20,7 +20,7 @@ import MDAnalysis as mda
 from MDAnalysis import transformations
 import mdtraj as md
 import numpy as np
-from openforcefield.topology import Molecule, Topology
+from openff.toolkit.topology import Molecule, Topology
 from openmmforcefields.generators import SystemGenerator
 import simtk.openmm as mm
 import simtk.openmm.app as app
