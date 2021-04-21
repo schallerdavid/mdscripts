@@ -36,7 +36,7 @@ output_directory = pathlib.Path().cwd() / "output"
 
 # forcefield
 protein_forcefield = "amber14/protein.ff14SB.xml"
-small_molecule_forcefield = "openff-1.2.0"
+small_molecule_forcefield = "openff-1.3.0"
 solvent_forcefield = "amber14/tip3p.xml"
 nonbonded_method = app.PME
 
