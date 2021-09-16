@@ -1,4 +1,4 @@
-# mdcripts
+# mdscripts
 This repository collects scripts for running MD simulations.
 
 ## Content
