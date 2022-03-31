@@ -57,6 +57,7 @@ platform.setPropertyDefaultValue(property="Threads", value=str(max_number_cpus))
 
 print("Making output directory ...")
 output_directory = pathlib.Path(output_directory)
+output_directory.mkdir(exist_ok=True, parents=True)
 
 print("Writing packages of conda environment ...")
 with open(output_directory / "conda_environment.txt", "w") as wf:
